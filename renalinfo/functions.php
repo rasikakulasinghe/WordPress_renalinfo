@@ -199,3 +199,150 @@ function renalinfo_includes() {
 	require_once RENALINFO_THEME_DIR . '/inc/ajax-handlers.php';
 }
 add_action( 'after_setup_theme', 'renalinfo_includes' );
+
+/**
+ * Register Polylang strings for translation
+ *
+ * @since 1.0.0
+ */
+function renalinfo_register_polylang_strings() {
+	// Check if Polylang function exists.
+	if ( ! function_exists( 'pll_register_string' ) ) {
+		return;
+	}
+
+	// Common UI strings.
+	pll_register_string( 'renalinfo', 'Read More', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'For Families', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'For Professionals', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Related Articles', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Medical Terms Explained', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Frequently Asked Questions', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Support Resources', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'View All', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Search', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Categories', 'renalinfo' );
+
+	// Article meta strings.
+	pll_register_string( 'renalinfo', 'Reading Time', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Last Updated', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Medically Reviewed By', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Key Takeaways', 'renalinfo' );
+
+	// Navigation strings.
+	pll_register_string( 'renalinfo', 'Home', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Previous', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Next', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Back to', 'renalinfo' );
+
+	// Filter strings.
+	pll_register_string( 'renalinfo', 'Filter by Audience', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'All Audiences', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Reading Level', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'All Levels', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Apply Filter', 'renalinfo' );
+
+	// Language switcher strings.
+	pll_register_string( 'renalinfo', 'Select Language', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Choose Your Language', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Continue', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Language', 'renalinfo' );
+
+	// Translation notice strings.
+	pll_register_string( 'renalinfo', 'Translation Not Available', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'This content is not yet available in your selected language. Showing English version.', 'renalinfo' );
+
+	// Form strings.
+	pll_register_string( 'renalinfo', 'Submit', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Required', 'renalinfo' );
+
+	// Error/notice strings.
+	pll_register_string( 'renalinfo', 'No results found', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Content updated', 'renalinfo' );
+
+	// Journey navigation.
+	pll_register_string( 'renalinfo', 'Article', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'of', 'renalinfo' );
+	pll_register_string( 'renalinfo', 'Journey Overview', 'renalinfo' );
+
+	// Customizer strings (register these when customizer values are set).
+	$hero_title = get_theme_mod( 'renalinfo_hero_title' );
+	if ( $hero_title ) {
+		pll_register_string( 'renalinfo', 'Hero Title', 'renalinfo' );
+	}
+
+	$hero_subtitle = get_theme_mod( 'renalinfo_hero_subtitle' );
+	if ( $hero_subtitle ) {
+		pll_register_string( 'renalinfo', 'Hero Subtitle', 'renalinfo' );
+	}
+
+	$footer_text = get_theme_mod( 'renalinfo_footer_text' );
+	if ( $footer_text ) {
+		pll_register_string( 'renalinfo', 'Footer Text', 'renalinfo' );
+	}
+}
+add_action( 'init', 'renalinfo_register_polylang_strings' );
+
+/**
+ * Get language-specific font family
+ *
+ * @since 1.0.0
+ * @param string $lang_code Language code (en, si, ta).
+ * @return string Font family CSS value.
+ */
+function renalinfo_get_language_font( $lang_code = '' ) {
+	if ( empty( $lang_code ) && function_exists( 'pll_current_language' ) ) {
+		$lang_code = pll_current_language();
+	}
+
+	$fonts = array(
+		'si' => "'Noto Sans Sinhala', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+		'ta' => "'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+		'en' => "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+	);
+
+	return isset( $fonts[ $lang_code ] ) ? $fonts[ $lang_code ] : $fonts['en'];
+}
+
+/**
+ * Add language-specific body class
+ *
+ * @since 1.0.0
+ * @param array $classes Existing body classes.
+ * @return array Modified body classes.
+ */
+function renalinfo_language_body_class( $classes ) {
+	if ( function_exists( 'pll_current_language' ) ) {
+		$current_lang = pll_current_language();
+		$classes[]    = 'lang-' . $current_lang;
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'renalinfo_language_body_class' );
+
+/**
+ * Output inline CSS for language-specific fonts
+ *
+ * @since 1.0.0
+ */
+function renalinfo_language_font_styles() {
+	if ( ! function_exists( 'pll_current_language' ) ) {
+		return;
+	}
+
+	$current_lang = pll_current_language();
+	$font_family  = renalinfo_get_language_font( $current_lang );
+
+	// Only output custom font for Sinhala and Tamil.
+	if ( 'si' === $current_lang || 'ta' === $current_lang ) {
+		?>
+		<style id="renalinfo-language-fonts">
+			body {
+				font-family: <?php echo esc_attr( $font_family ); ?>;
+			}
+		</style>
+		<?php
+	}
+}
+add_action( 'wp_head', 'renalinfo_language_font_styles', 100 );
+

@@ -57,6 +57,13 @@
 					)
 				);
 				?>
+				
+				<?php
+				// Display language switcher if Polylang is active
+				if ( function_exists( 'pll_the_languages' ) ) {
+					get_template_part( 'template-parts/navigation/language-switcher' );
+				}
+				?>
 			</nav><!-- #site-navigation -->
 		</div><!-- .container -->
 	</header><!-- #masthead -->

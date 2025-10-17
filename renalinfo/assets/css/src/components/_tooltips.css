@@ -1,0 +1,247 @@
+/**
+ * Medical Term Tooltips Component Styles
+ * 
+ * Accessible, responsive tooltip styling for medical terminology
+ *
+ * @package RenalInfo
+ */
+
+/* ==========================================================================
+   Medical Term Wrapper
+   ========================================================================== */
+
+.medical-term-wrapper {
+	position: relative;
+	display: inline;
+}
+
+/* ==========================================================================
+   Medical Term Trigger (Button)
+   ========================================================================== */
+
+.medical-term-trigger {
+	display: inline;
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	color: var(--color-primary-600);
+	cursor: help;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: var(--color-primary-400);
+	text-underline-offset: 2px;
+	transition: all var(--transition-base);
+	border-radius: 2px;
+}
+
+.medical-term-trigger:hover,
+.medical-term-trigger:focus {
+	color: var(--color-primary-700);
+	text-decoration-color: var(--color-primary-600);
+	background: var(--color-primary-50);
+	outline: none;
+}
+
+.medical-term-trigger:focus-visible {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
+}
+
+.medical-term-trigger[aria-expanded="true"] {
+	color: var(--color-primary-800);
+	background: var(--color-primary-100);
+	text-decoration-color: var(--color-primary-700);
+}
+
+/* ==========================================================================
+   Tooltip Container
+   ========================================================================== */
+
+.medical-term-tooltip {
+	position: absolute;
+	z-index: 1000;
+	min-width: 250px;
+	max-width: 350px;
+	padding: var(--spacing-4);
+	background: var(--color-white);
+	border: 1px solid var(--color-gray-300);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-lg);
+	font-size: var(--font-size-sm);
+	line-height: var(--line-height-relaxed);
+	color: var(--color-gray-800);
+	
+	/* Positioning */
+	bottom: calc(100% + 8px);
+	left: 50%;
+	transform: translateX(-50%);
+	
+	/* Animation */
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+/* Show state */
+.medical-term-tooltip[aria-hidden="false"] {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Arrow */
+.medical-term-tooltip::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px 8px 0 8px;
+	border-color: var(--color-white) transparent transparent transparent;
+}
+
+.medical-term-tooltip::before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 9px 9px 0 9px;
+	border-color: var(--color-gray-300) transparent transparent transparent;
+	margin-top: 1px;
+}
+
+/* Bottom position variant */
+.medical-term-tooltip[data-position="bottom"] {
+	bottom: auto;
+	top: calc(100% + 8px);
+}
+
+.medical-term-tooltip[data-position="bottom"]::after {
+	top: auto;
+	bottom: 100%;
+	border-width: 0 8px 8px 8px;
+	border-color: transparent transparent var(--color-white) transparent;
+}
+
+.medical-term-tooltip[data-position="bottom"]::before {
+	top: auto;
+	bottom: 100%;
+	border-width: 0 9px 9px 9px;
+	border-color: transparent transparent var(--color-gray-300) transparent;
+	margin-top: 0;
+	margin-bottom: 1px;
+}
+
+/* ==========================================================================
+   Tooltip Content
+   ========================================================================== */
+
+.tooltip-term {
+	display: block;
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-primary-700);
+	margin-bottom: var(--spacing-2);
+	line-height: var(--line-height-tight);
+}
+
+.tooltip-pronunciation {
+	display: block;
+	font-size: var(--font-size-xs);
+	font-style: italic;
+	color: var(--color-gray-600);
+	margin-bottom: var(--spacing-2);
+}
+
+.tooltip-definition {
+	display: block;
+	color: var(--color-gray-700);
+	line-height: var(--line-height-relaxed);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 640px) {
+	.medical-term-tooltip {
+		min-width: 200px;
+		max-width: 90vw;
+		position: fixed;
+		left: 5vw !important;
+		right: 5vw !important;
+		transform: none;
+	}
+	
+	.medical-term-tooltip::after,
+	.medical-term-tooltip::before {
+		left: 20px;
+		transform: none;
+	}
+}
+
+/* ==========================================================================
+   Touch Device Optimizations
+   ========================================================================== */
+
+@media (hover: none) {
+	.medical-term-trigger {
+		/* Larger tap target on touch devices */
+		padding: var(--spacing-1);
+		margin: calc(-1 * var(--spacing-1));
+	}
+	
+	.medical-term-tooltip {
+		/* Prevent tooltip from being too close to edge */
+		max-width: 85vw;
+	}
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+	.medical-term-trigger {
+		text-decoration-style: solid;
+		text-decoration-thickness: 2px;
+	}
+	
+	.medical-term-tooltip {
+		border: 2px solid currentColor;
+	}
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+	.medical-term-trigger {
+		text-decoration: none;
+		color: inherit;
+		cursor: text;
+	}
+	
+	.medical-term-tooltip {
+		display: none !important;
+	}
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.medical-term-tooltip {
+		transition: none;
+	}
+}

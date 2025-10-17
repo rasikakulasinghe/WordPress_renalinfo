@@ -1,0 +1,441 @@
+/**
+ * Language Switcher Component
+ *
+ * Styles for language switcher dropdown and first-visit modal
+ *
+ * @package RenalInfo
+ * @since 1.0.0
+ */
+
+/* Language Switcher Container */
+.language-switcher {
+	position: relative;
+	display: inline-block;
+}
+
+/* Switcher Toggle Button */
+.language-switcher-toggle {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-2);
+	padding: var(--spacing-2) var(--spacing-3);
+	background-color: var(--color-white);
+	border: 1px solid var(--color-gray-300);
+	border-radius: var(--border-radius);
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	color: var(--color-gray-700);
+	cursor: pointer;
+	transition: all var(--transition-fast);
+}
+
+.language-switcher-toggle:hover {
+	background-color: var(--color-gray-50);
+	border-color: var(--color-primary-500);
+	color: var(--color-primary-700);
+}
+
+.language-switcher-toggle:focus {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
+}
+
+.language-switcher-toggle[aria-expanded="true"] {
+	background-color: var(--color-primary-50);
+	border-color: var(--color-primary-500);
+}
+
+/* Current Language Display */
+.language-switcher-current {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-2);
+}
+
+.flag-icon {
+	display: inline-flex;
+	align-items: center;
+	width: 20px;
+	height: 15px;
+}
+
+.flag-icon img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 2px;
+}
+
+.language-name {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.dropdown-icon {
+	font-size: 10px;
+	transition: transform var(--transition-fast);
+}
+
+.language-switcher-toggle[aria-expanded="true"] .dropdown-icon {
+	transform: rotate(180deg);
+}
+
+/* Language Dropdown */
+.language-dropdown {
+	position: absolute;
+	top: calc(100% + var(--spacing-1));
+	right: 0;
+	min-width: 180px;
+	background-color: var(--color-white);
+	border: 1px solid var(--color-gray-300);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-lg);
+	list-style: none;
+	margin: 0;
+	padding: var(--spacing-1) 0;
+	z-index: 1000;
+}
+
+.language-dropdown[hidden] {
+	display: none;
+}
+
+/* Language Dropdown Items */
+.language-item {
+	margin: 0;
+	padding: 0;
+}
+
+.language-link {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-2);
+	padding: var(--spacing-2) var(--spacing-3);
+	color: var(--color-gray-700);
+	text-decoration: none;
+	transition: background-color var(--transition-fast);
+	position: relative;
+}
+
+.language-link:hover {
+	background-color: var(--color-gray-50);
+	color: var(--color-primary-700);
+}
+
+.language-link:focus {
+	background-color: var(--color-primary-50);
+	color: var(--color-primary-700);
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: -2px;
+}
+
+.language-item.current-lang .language-link {
+	background-color: var(--color-primary-50);
+	color: var(--color-primary-700);
+	font-weight: 600;
+}
+
+.checkmark {
+	margin-left: auto;
+	color: var(--color-primary-600);
+	font-size: var(--font-size-sm);
+}
+
+/* First-Visit Language Modal */
+.language-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-4);
+}
+
+.language-modal[hidden] {
+	display: none;
+}
+
+/* Modal Overlay */
+.language-modal-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
+	animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal Content */
+.language-modal-content {
+	position: relative;
+	width: 100%;
+	max-width: 600px;
+	background-color: var(--color-white);
+	border-radius: var(--border-radius-lg);
+	box-shadow: var(--shadow-2xl);
+	padding: var(--spacing-6);
+	z-index: 1;
+	animation: slideUp 0.3s ease-out;
+}
+
+.language-modal-content:focus {
+	outline: none;
+}
+
+/* Modal Header */
+.language-modal-header {
+	text-align: center;
+	margin-bottom: var(--spacing-6);
+}
+
+#language-modal-title {
+	font-size: var(--font-size-2xl);
+	font-weight: 700;
+	color: var(--color-gray-900);
+	margin: 0 0 var(--spacing-2);
+	line-height: var(--line-height-tight);
+}
+
+.language-modal-description {
+	font-size: var(--font-size-base);
+	color: var(--color-gray-600);
+	margin: 0;
+}
+
+/* Language Selection Grid */
+.language-selection-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: var(--spacing-4);
+	margin-bottom: var(--spacing-6);
+}
+
+/* Language Selection Cards */
+.language-selection-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-3);
+	padding: var(--spacing-5) var(--spacing-4);
+	background-color: var(--color-white);
+	border: 2px solid var(--color-gray-300);
+	border-radius: var(--border-radius-lg);
+	text-decoration: none;
+	color: var(--color-gray-700);
+	transition: all var(--transition-base);
+	cursor: pointer;
+	min-height: 160px;
+	justify-content: center;
+}
+
+.language-selection-card:hover {
+	border-color: var(--color-primary-500);
+	background-color: var(--color-primary-50);
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-lg);
+}
+
+.language-selection-card:focus {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
+	border-color: var(--color-primary-500);
+}
+
+.language-selection-card.current-lang {
+	border-color: var(--color-accent-500);
+	background-color: var(--color-accent-50);
+}
+
+.language-flag {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 36px;
+}
+
+.language-flag img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 4px;
+	box-shadow: var(--shadow-sm);
+}
+
+.language-name-large {
+	font-size: var(--font-size-lg);
+	font-weight: 600;
+	color: var(--color-gray-900);
+	text-align: center;
+}
+
+.language-native-name {
+	font-size: var(--font-size-xl);
+	font-weight: 700;
+	color: var(--color-primary-700);
+	text-align: center;
+}
+
+/* Modal Footer */
+.language-modal-footer {
+	display: flex;
+	justify-content: center;
+	padding-top: var(--spacing-4);
+	border-top: 1px solid var(--color-gray-200);
+}
+
+.language-modal-close {
+	padding: var(--spacing-3) var(--spacing-6);
+	font-size: var(--font-size-base);
+	font-weight: 600;
+	min-width: 120px;
+}
+
+/* Body class when modal is open */
+body.modal-open {
+	overflow: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+	.language-switcher-toggle {
+		padding: var(--spacing-2);
+	}
+
+	.language-name {
+		display: none;
+	}
+
+	.language-dropdown {
+		right: auto;
+		left: 0;
+		min-width: 150px;
+	}
+
+	.language-modal-content {
+		padding: var(--spacing-5);
+		max-height: 90vh;
+		overflow-y: auto;
+	}
+
+	#language-modal-title {
+		font-size: var(--font-size-xl);
+	}
+
+	.language-selection-grid {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-3);
+	}
+
+	.language-selection-card {
+		padding: var(--spacing-4);
+		min-height: 120px;
+	}
+
+	.language-flag {
+		width: 40px;
+		height: 30px;
+	}
+
+	.language-native-name {
+		font-size: var(--font-size-lg);
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.language-selection-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Touch device improvements */
+@media (hover: none) {
+	.language-selection-card {
+		min-height: 140px;
+	}
+
+	.language-switcher-toggle,
+	.language-link,
+	.language-selection-card {
+		min-height: 44px; /* WCAG touch target size */
+		min-width: 44px;
+	}
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+	.language-switcher-toggle,
+	.language-dropdown,
+	.language-selection-card {
+		border-width: 2px;
+	}
+
+	.language-modal-overlay {
+		background-color: rgba(0, 0, 0, 0.75);
+	}
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.language-switcher-toggle,
+	.language-link,
+	.language-selection-card,
+	.dropdown-icon {
+		transition: none;
+	}
+
+	.language-modal-overlay,
+	.language-modal-content {
+		animation: none;
+	}
+
+	.language-selection-card:hover {
+		transform: none;
+	}
+}
+
+/* Print Styles */
+@media print {
+	.language-switcher,
+	.language-modal {
+		display: none;
+	}
+}
+
+/* Focus visible for better keyboard navigation */
+.language-switcher-toggle:focus-visible,
+.language-link:focus-visible,
+.language-selection-card:focus-visible,
+.language-modal-close:focus-visible {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
+}

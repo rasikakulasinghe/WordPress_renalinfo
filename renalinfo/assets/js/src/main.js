@@ -5,6 +5,12 @@
  * @since 1.0.0
  */
 
+// Import medical terms tooltip functionality
+import './medical-terms.js';
+
+// Import language handler for multilingual support
+import './language-handler.js';
+
 (function() {
 	'use strict';
 

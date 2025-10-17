@@ -1,7 +1,663 @@
-/* Main source CSS file for RenalInfo theme */
-/* This file will be processed by PostCSS */
+/**
+ * RenalInfo Theme Styles
+ * Main stylesheet with PostCSS processing
+ * 
+ * @package RenalInfo
+ * @since 1.0.0
+ */
 
-/* Import base styles from main style.css */
-@import "../../style.css";
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
 
-/* Additional component styles will be added here */
+:root {
+	/* Color Palette - Calming medical theme */
+	--color-primary: #4A90A4;        /* Calming blue */
+	--color-primary-50: #EEF6F8;
+	--color-primary-100: #D4E9EE;
+	--color-primary-200: #B5D9E2;
+	--color-primary-300: #8EC4D2;
+	--color-primary-light: #6BA8B8;
+	--color-primary-500: #4A90A4;
+	--color-primary-600: #3E7A8E;
+	--color-primary-700: #357A8C;
+	--color-primary-dark: #357A8C;
+	--color-primary-800: #2A5F6F;
+	--color-primary-900: #1F4752;
+	
+	--color-secondary: #7AB097;      /* Soft green */
+	--color-secondary-50: #F2F8F5;
+	--color-secondary-100: #E0F0E7;
+	--color-secondary-200: #C6E3D4;
+	--color-secondary-light: #9AC4AD;
+	--color-secondary-400: #8EBFA4;
+	--color-secondary-500: #7AB097;
+	--color-secondary-600: #669D84;
+	--color-secondary-700: #5A9077;
+	--color-secondary-dark: #5A9077;
+	--color-secondary-800: #477360;
+	--color-secondary-900: #355648;
+	
+	--color-accent: #5C9EA8;         /* Muted teal */
+	--color-accent-50: #EFF7F8;
+	--color-accent-100: #D9EEF1;
+	--color-accent-200: #B9DFE4;
+	--color-accent-300: #94CDD4;
+	--color-accent-light: #7DB4BC;
+	--color-accent-400: #7DB4BC;
+	--color-accent-500: #5C9EA8;
+	--color-accent-600: #4D8891;
+	--color-accent-700: #4A7E86;
+	--color-accent-dark: #4A7E86;
+	--color-accent-800: #3B656C;
+	--color-accent-900: #2C4C52;
+	
+	/* Semantic Colors */
+	--color-success: #68B584;
+	--color-warning: #E8B84A;
+	--color-error: #D97070;
+	--color-info: #6BA8B8;
+	
+	/* Neutrals */
+	--color-white: #FFFFFF;
+	--color-gray-50: #F9FAFB;
+	--color-gray-100: #F3F4F6;
+	--color-gray-200: #E5E7EB;
+	--color-gray-300: #D1D5DB;
+	--color-gray-400: #9CA3AF;
+	--color-gray-500: #6B7280;
+	--color-gray-600: #4B5563;
+	--color-gray-700: #374151;
+	--color-gray-800: #1F2937;
+	--color-gray-900: #111827;
+	--color-black: #000000;
+	
+	/* Text Colors */
+	--color-text-primary: var(--color-gray-900);
+	--color-text-secondary: var(--color-gray-600);
+	--color-text-muted: var(--color-gray-500);
+	--color-text-inverse: var(--color-white);
+	
+	/* Background Colors */
+	--color-bg-body: var(--color-white);
+	--color-bg-alt: var(--color-gray-50);
+	--color-bg-elevated: var(--color-white);
+	
+	/* Border Colors */
+	--color-border: var(--color-gray-200);
+	--color-border-light: var(--color-gray-100);
+	--color-border-dark: var(--color-gray-300);
+	
+	/* Typography - Latin fonts */
+	--font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--font-family-sinhala: 'Noto Sans Sinhala', var(--font-family-base);
+	--font-family-tamil: 'Noto Sans Tamil', var(--font-family-base);
+	--font-family-headings: var(--font-family-base);
+	--font-family-monospace: 'Courier New', Courier, monospace;
+	
+	/* Font Sizes */
+	--font-size-xs: 0.75rem;      /* 12px */
+	--font-size-sm: 0.875rem;     /* 14px */
+	--font-size-base: 1rem;       /* 16px */
+	--font-size-lg: 1.125rem;     /* 18px */
+	--font-size-xl: 1.25rem;      /* 20px */
+	--font-size-2xl: 1.5rem;      /* 24px */
+	--font-size-3xl: 1.875rem;    /* 30px */
+	--font-size-4xl: 2.25rem;     /* 36px */
+	--font-size-5xl: 3rem;        /* 48px */
+	
+	/* Line Heights */
+	--line-height-tight: 1.25;
+	--line-height-normal: 1.5;
+	--line-height-relaxed: 1.75;
+	--line-height-loose: 2;
+	
+	/* Font Weights */
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	
+	/* Spacing Scale */
+	--spacing-xs: 0.25rem;        /* 4px */
+	--spacing-sm: 0.5rem;         /* 8px */
+	--spacing-md: 1rem;           /* 16px */
+	--spacing-lg: 1.5rem;         /* 24px */
+	--spacing-xl: 2rem;           /* 32px */
+	--spacing-2xl: 3rem;          /* 48px */
+	--spacing-3xl: 4rem;          /* 64px */
+	--spacing-4xl: 6rem;          /* 96px */
+	
+	/* Border Radius */
+	--radius-sm: 0.25rem;         /* 4px */
+	--radius-md: 0.375rem;        /* 6px */
+	--radius-lg: 0.5rem;          /* 8px */
+	--radius-xl: 0.75rem;         /* 12px */
+	--radius-2xl: 1rem;           /* 16px */
+	--radius-full: 9999px;
+	
+	/* Shadows */
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	
+	/* Transitions */
+	--transition-fast: 150ms ease-in-out;
+	--transition-base: 250ms ease-in-out;
+	--transition-slow: 350ms ease-in-out;
+	
+	/* Breakpoints (for JS/media queries reference) */
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1536px;
+	
+	/* Layout */
+	--container-max-width: 1200px;
+	--content-max-width: 720px;
+	--header-height: 80px;
+	
+	/* Z-index Scale */
+	--z-base: 1;
+	--z-dropdown: 100;
+	--z-sticky: 200;
+	--z-fixed: 300;
+	--z-modal-backdrop: 400;
+	--z-modal: 500;
+	--z-popover: 600;
+	--z-tooltip: 700;
+}
+
+/* High Contrast Mode Variables */
+@media (prefers-contrast: high) {
+	:root {
+		--color-primary: #2A6A7C;
+		--color-secondary: #4A8067;
+		--color-text-primary: var(--color-black);
+		--color-border: var(--color-gray-400);
+	}
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-normal);
+	line-height: var(--line-height-normal);
+	color: var(--color-text-primary);
+	background-color: var(--color-bg-body);
+	overflow-x: hidden;
+}
+
+/* Language-specific fonts */
+html[lang="si"],
+html[lang="si-LK"],
+[lang="si"],
+[lang="si-LK"] {
+	font-family: var(--font-family-sinhala);
+}
+
+html[lang="ta"],
+html[lang="ta-LK"],
+[lang="ta"],
+[lang="ta-LK"] {
+	font-family: var(--font-family-tamil);
+	/* Adjust line-height for Tamil script */
+	line-height: var(--line-height-relaxed);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-tight);
+	color: var(--color-text-primary);
+	margin-top: 0;
+	margin-bottom: var(--spacing-md);
+}
+
+h1 {
+	font-size: var(--font-size-4xl);
+	margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+	font-size: var(--font-size-3xl);
+}
+
+h3 {
+	font-size: var(--font-size-2xl);
+}
+
+h4 {
+	font-size: var(--font-size-xl);
+}
+
+h5 {
+	font-size: var(--font-size-lg);
+}
+
+h6 {
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-semibold);
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: var(--spacing-md);
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+	color: var(--color-primary-dark);
+	text-decoration: underline;
+}
+
+a:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+	border-radius: var(--radius-sm);
+}
+
+strong, b {
+	font-weight: var(--font-weight-bold);
+}
+
+em, i {
+	font-style: italic;
+}
+
+small {
+	font-size: var(--font-size-sm);
+}
+
+/* Lists */
+ul, ol {
+	margin-top: 0;
+	margin-bottom: var(--spacing-md);
+	padding-left: var(--spacing-xl);
+}
+
+li {
+	margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Language-Specific Typography (Multilingual Support)
+   ========================================================================== */
+
+/* Sinhala Language Adjustments */
+[lang="si"],
+.lang-si {
+	/* Sinhala script requires taller line height for complex glyphs */
+	line-height: 1.9;
+}
+
+[lang="si"] h1,
+[lang="si"] h2,
+[lang="si"] h3,
+[lang="si"] h4,
+[lang="si"] h5,
+[lang="si"] h6,
+.lang-si h1,
+.lang-si h2,
+.lang-si h3,
+.lang-si h4,
+.lang-si h5,
+.lang-si h6 {
+	line-height: 1.6;
+	letter-spacing: 0.01em;
+}
+
+[lang="si"] p,
+.lang-si p {
+	line-height: 1.9;
+}
+
+[lang="si"] li,
+.lang-si li {
+	line-height: 1.8;
+}
+
+/* Tamil Language Adjustments */
+[lang="ta"],
+.lang-ta {
+	/* Tamil script benefits from slightly increased line height */
+	line-height: 1.7;
+}
+
+[lang="ta"] h1,
+[lang="ta"] h2,
+[lang="ta"] h3,
+[lang="ta"] h4,
+[lang="ta"] h5,
+[lang="ta"] h6,
+.lang-ta h1,
+.lang-ta h2,
+.lang-ta h3,
+.lang-ta h4,
+.lang-ta h5,
+.lang-ta h6 {
+	line-height: 1.5;
+	letter-spacing: 0.005em;
+}
+
+[lang="ta"] p,
+.lang-ta p {
+	line-height: 1.7;
+}
+
+[lang="ta"] li,
+.lang-ta li {
+	line-height: 1.65;
+}
+
+/* Font size adjustments for better readability in Indic scripts */
+[lang="si"] .article-content,
+[lang="ta"] .article-content,
+.lang-si .article-content,
+.lang-ta .article-content {
+	font-size: 1.0625rem; /* Slightly larger base font (17px) */
+}
+
+/* Button and UI text adjustments */
+[lang="si"] .btn,
+[lang="ta"] .btn,
+.lang-si .btn,
+.lang-ta .btn {
+	line-height: 1.6;
+	padding-top: 0.625rem;
+	padding-bottom: 0.625rem;
+}
+
+/* Form input adjustments */
+[lang="si"] input,
+[lang="si"] textarea,
+[lang="si"] select,
+[lang="ta"] input,
+[lang="ta"] textarea,
+[lang="ta"] select,
+.lang-si input,
+.lang-si textarea,
+.lang-si select,
+.lang-ta input,
+.lang-ta textarea,
+.lang-ta select {
+	line-height: 1.6;
+}
+
+/* Table text adjustments */
+[lang="si"] table,
+[lang="ta"] table,
+.lang-si table,
+.lang-ta table {
+	line-height: 1.7;
+}
+
+/* Navigation menu adjustments for Indic scripts */
+[lang="si"] .main-navigation,
+[lang="ta"] .main-navigation,
+.lang-si .main-navigation,
+.lang-ta .main-navigation {
+	line-height: 1.8;
+}
+
+[lang="si"] .menu-item,
+[lang="ta"] .menu-item,
+.lang-si .menu-item,
+.lang-ta .menu-item {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
+
+.container {
+	width: 100%;
+	max-width: var(--container-max-width);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--spacing-md);
+	padding-right: var(--spacing-md);
+}
+
+.content-wrapper {
+	max-width: var(--content-max-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Grid System */
+.grid {
+	display: grid;
+	gap: var(--spacing-md);
+}
+
+.grid-cols-1 {
+	grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* Flexbox Utilities */
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+/* Spacing Utilities */
+.mt-0 { margin-top: 0; }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Mobile First Approach */
+
+/* Small devices (landscape phones, 640px and up) */
+@media (min-width: 640px) {
+	:root {
+		--font-size-base: 1rem;
+	}
+	
+	.container {
+		padding-left: var(--spacing-lg);
+		padding-right: var(--spacing-lg);
+	}
+	
+	.grid-cols-sm-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	:root {
+		--font-size-base: 1.0625rem; /* 17px */
+	}
+	
+	h1 {
+		font-size: var(--font-size-5xl);
+	}
+	
+	.grid-cols-md-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	.grid-cols-md-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+	.container {
+		padding-left: var(--spacing-xl);
+		padding-right: var(--spacing-xl);
+	}
+	
+	.grid-cols-lg-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	
+	.grid-cols-lg-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* Extra large devices (large desktops, 1280px and up) */
+@media (min-width: 1280px) {
+	:root {
+		--font-size-base: 1.125rem; /* 18px */
+	}
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+/* Skip to content link */
+.skip-link {
+	position: absolute;
+	top: -100px;
+	left: 0;
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	padding: var(--spacing-sm) var(--spacing-md);
+	text-decoration: none;
+	z-index: var(--z-tooltip);
+	transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+	top: 0;
+	outline: 2px solid var(--color-primary-dark);
+}
+
+/* Screen reader only */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Focus visible */
+:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* ==========================================================================
+   Component Imports
+   ========================================================================== */
+
+/* Page Styles */
+@import "pages/_home.css";
+@import "pages/_archive.css";
+@import "pages/_taxonomy.css";
+@import "pages/_search.css";
+
+/* Component Styles */
+@import "components/_condition-explainer.css";
+@import "components/_tooltips.css";
+@import "components/_language-switcher.css";
+@import "components/_translation-notice.css";
+@import "components/_language-switch-overlay.css";
+
+/* Additional components to be added in future phases */
+/* @import "components/_buttons.css"; */
+/* @import "components/_forms.css"; */
+/* @import "components/_cards.css"; */
+/* @import "layout/_header.css"; */
+/* @import "layout/_footer.css"; */

@@ -40,7 +40,7 @@
 - [X] T012 [P] Create `renalinfo/.gitignore` (node_modules/, compiled assets, debug.log, etc.)
 - [X] T013 [P] Create `renalinfo/assets/css/src/style.css` (source CSS file)
 - [X] T014 [P] Create `renalinfo/assets/js/src/main.js` (source JavaScript file)
-- [ ] T015 Run `npm install` in renalinfo/ directory to install build dependencies
+- [X] T015 Run `npm install` in renalinfo/ directory to install build dependencies
 - [X] T016 Configure PostCSS with postcss-preset-env, autoprefixer, and cssnano in `renalinfo/postcss.config.js`
 - [X] T017 Add npm scripts to `renalinfo/package.json` (build, watch, lint commands per research.md)
 - [X] T018 Create `renalinfo/.editorconfig` for consistent code formatting
@@ -64,28 +64,28 @@
 - [X] T027 [P] Register 'journey' custom post type in `renalinfo/inc/custom-post-types.php`
 - [X] T028 [P] Register 'staff' custom post type in `renalinfo/inc/custom-post-types.php`
 - [X] T029 [P] Register 'medical_term' custom post type in `renalinfo/inc/custom-post-types.php`
-- [ ] T029a [P] Create admin columns and quick-edit UI for medical term abbreviations and synonyms in `renalinfo/inc/custom-post-types.php` to support FR-016a glossary management
+- [X] T029a [P] Create admin columns and quick-edit UI for medical term abbreviations and synonyms in `renalinfo/inc/custom-post-types.php` to support FR-016a glossary management
 - [X] T030 [P] Register 'support_resource' custom post type in `renalinfo/inc/custom-post-types.php`
 - [X] T031 Register 'article_category' taxonomy (hierarchical) in `renalinfo/inc/custom-taxonomies.php`
 - [X] T032 [P] Register 'audience_type' taxonomy in `renalinfo/inc/custom-taxonomies.php`
 - [X] T033 [P] Register 'specialization' taxonomy in `renalinfo/inc/custom-taxonomies.php`
 - [X] T034 [P] Register 'resource_type' taxonomy in `renalinfo/inc/custom-taxonomies.php`
-- [ ] T035 Create custom fields framework using CMB2 or ACF (or native) in `renalinfo/inc/custom-fields.php`
-- [ ] T036 Add article custom fields (_article_template, _reading_level, _audience, _medical_review_date, etc.) in `renalinfo/inc/custom-fields.php`
-- [ ] T037 [P] Add journey custom fields (_journey_articles, _journey_audience, _estimated_time) in `renalinfo/inc/custom-fields.php`
-- [ ] T038 [P] Add staff custom fields (_staff_role, _staff_credentials, _staff_personal_bio, etc.) in `renalinfo/inc/custom-fields.php`
-- [ ] T039 [P] Add medical_term custom fields (_term_abbreviation, _term_synonyms, definitions) in `renalinfo/inc/custom-fields.php`
-- [ ] T040 Create template functions file `renalinfo/inc/template-functions.php` with helper functions
-- [ ] T041 Create template tags file `renalinfo/inc/template-tags.php` with display functions
-- [ ] T042 Implement sanitization functions for all custom field inputs in `renalinfo/inc/template-functions.php`
-- [ ] T043 Implement validation functions for article requirements per data-model.md in `renalinfo/inc/template-functions.php`
+- [X] T035 Create custom fields framework using CMB2 or ACF (or native) in `renalinfo/inc/custom-fields.php`
+- [X] T036 Add article custom fields (_article_template, _reading_level, _audience, _medical_review_date, etc.) in `renalinfo/inc/custom-fields.php`
+- [X] T037 [P] Add journey custom fields (_journey_articles, _journey_audience, _estimated_time) in `renalinfo/inc/custom-fields.php`
+- [X] T038 [P] Add staff custom fields (_staff_role, _staff_credentials, _staff_personal_bio, etc.) in `renalinfo/inc/custom-fields.php`
+- [X] T039 [P] Add medical_term custom fields (_term_abbreviation, _term_synonyms, definitions) in `renalinfo/inc/custom-fields.php`
+- [X] T040 Create template functions file `renalinfo/inc/template-functions.php` with helper functions
+- [X] T041 Create template tags file `renalinfo/inc/template-tags.php` with display functions
+- [X] T042 Implement sanitization functions for all custom field inputs in `renalinfo/inc/template-functions.php`
+- [X] T043 Implement validation functions for article requirements per data-model.md in `renalinfo/inc/template-functions.php`
 - [ ] T044 Set up WordPress revisions configuration (WP_POST_REVISIONS in wp-config.php documentation)
-- [ ] T045 Create version history display function in `renalinfo/inc/template-tags.php`
-- [ ] T046 Implement base CSS structure (variables, typography, layout grid) in `renalinfo/assets/css/src/style.css`
-- [ ] T047 Add CSS for font families (Latin, Sinhala, Tamil) with system font fallbacks in `renalinfo/assets/css/src/style.css`
-- [ ] T048 Implement color palette CSS variables (calming blues, soft greens, muted teals) in `renalinfo/assets/css/src/style.css`
-- [ ] T049 Create responsive breakpoint mixins/utilities in `renalinfo/assets/css/src/style.css`
-- [ ] T050 Build initial CSS and JavaScript assets with `npm run build`
+- [X] T045 Create version history display function in `renalinfo/inc/template-tags.php`
+- [X] T046 Implement base CSS structure (variables, typography, layout grid) in `renalinfo/assets/css/src/style.css`
+- [X] T047 Add CSS for font families (Latin, Sinhala, Tamil) with system font fallbacks in `renalinfo/assets/css/src/style.css`
+- [X] T048 Implement color palette CSS variables (calming blues, soft greens, muted teals) in `renalinfo/assets/css/src/style.css`
+- [X] T049 Create responsive breakpoint mixins/utilities in `renalinfo/assets/css/src/style.css`
+- [X] T050 Build initial CSS and JavaScript assets with `npm run build`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -104,23 +104,23 @@
 
 ### Implementation for User Story 1
 
-- [ ] T051 [P] [US1] Create homepage template `renalinfo/front-page.php` with category entry points and featured content
-- [ ] T052 [P] [US1] Create archive template `renalinfo/archive.php` for article listings with audience filtering
-- [ ] T053 [US1] Create single article template `renalinfo/single-article.php` with template-specific layouts
-- [ ] T054 [US1] Create condition-explainer template part `renalinfo/template-parts/content/content-condition-explainer.php`
-- [ ] T055 [US1] Implement FAQ display section in condition-explainer template with schema.org markup
-- [ ] T056 [US1] Add medical term tooltip/glossary integration in `renalinfo/inc/template-tags.php`
-- [ ] T057 [US1] Create related articles widget/section in `renalinfo/template-parts/content/related-articles.php`
-- [ ] T058 [US1] Style condition-explainer template (typography, spacing, colors) in `renalinfo/assets/css/src/components/_condition-explainer.css`
-- [ ] T059 [US1] Add support resource links section to article template in `renalinfo/template-parts/content/support-resources.php`
-- [ ] T060 [US1] Implement breadcrumb navigation for article pages in `renalinfo/inc/template-tags.php`
-- [ ] T061 [US1] Add reading time display function in `renalinfo/inc/template-tags.php`
-- [ ] T062 [US1] Create homepage CSS (hero section, category cards, featured content grid) in `renalinfo/assets/css/src/pages/_home.css`
-- [ ] T063 [US1] Create archive page CSS (article listing, filters, pagination) in `renalinfo/assets/css/src/pages/_archive.css`
-- [ ] T064 [US1] Implement responsive images with WebP support and lazy loading in `renalinfo/inc/template-functions.php`
-- [ ] T065 [US1] Add image optimization helper function (picture element with srcset) in `renalinfo/inc/template-functions.php`
-- [ ] T066 [US1] Create category taxonomy template `renalinfo/taxonomy-article_category.php`
-- [ ] T067 [US1] Style taxonomy archive pages in `renalinfo/assets/css/src/pages/_taxonomy.css`
+- [X] T051 [P] [US1] Create homepage template `renalinfo/front-page.php` with category entry points and featured content
+- [X] T052 [P] [US1] Create archive template `renalinfo/archive.php` for article listings with audience filtering
+- [X] T053 [US1] Create single article template `renalinfo/single-article.php` with template-specific layouts
+- [X] T054 [US1] Create condition-explainer template part `renalinfo/template-parts/content/content-condition-explainer.php`
+- [X] T055 [US1] Implement FAQ display section in condition-explainer template with schema.org markup
+- [X] T056 [US1] Add medical term tooltip/glossary integration in `renalinfo/inc/template-tags.php`
+- [X] T057 [US1] Create related articles widget/section in `renalinfo/template-parts/content/related-articles.php`
+- [X] T058 [US1] Style condition-explainer template (typography, spacing, colors) in `renalinfo/assets/css/src/components/_condition-explainer.css`
+- [X] T059 [US1] Add support resource links section to article template in `renalinfo/template-parts/content/support-resources.php`
+- [X] T060 [US1] Implement breadcrumb navigation for article pages in `renalinfo/inc/template-tags.php`
+- [X] T061 [US1] Add reading time display function in `renalinfo/inc/template-tags.php`
+- [X] T062 [US1] Create homepage CSS (hero section, category cards, featured content grid) in `renalinfo/assets/css/src/pages/_home.css`
+- [X] T063 [US1] Create archive page CSS (article listing, filters, pagination) in `renalinfo/assets/css/src/pages/_archive.css`
+- [X] T064 [US1] Implement responsive images with WebP support and lazy loading in `renalinfo/inc/template-functions.php`
+- [X] T065 [US1] Add image optimization helper function (picture element with srcset) in `renalinfo/inc/template-functions.php`
+- [X] T066 [US1] Create category taxonomy template `renalinfo/taxonomy-article_category.php`
+- [X] T067 [US1] Style taxonomy archive pages in `renalinfo/assets/css/src/pages/_taxonomy.css`
 
 **Checkpoint**: Parents can navigate from homepage to condition articles, read content with appropriate formatting, see FAQs and related treatments
 

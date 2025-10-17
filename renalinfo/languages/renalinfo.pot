@@ -1,0 +1,366 @@
+# Copyright (C) 2025 RenalInfo
+# This file is distributed under the same license as the RenalInfo package.
+msgid ""
+msgstr ""
+"Project-Id-Version: RenalInfo 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/rasikakulasinghe/WordPress_renalinfo/issues\n"
+"POT-Creation-Date: 2025-10-17 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Manual 1.0\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: functions.php
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php
+msgid "Footer Menu"
+msgstr ""
+
+#: header.php
+msgid "Skip to content"
+msgstr ""
+
+#: header.php
+msgid "Menu"
+msgstr ""
+
+#: header.php
+msgid "Language Switcher"
+msgstr ""
+
+#: inc/template-functions.php
+msgid "Article template is required."
+msgstr ""
+
+#: inc/template-functions.php
+msgid "Primary audience is required."
+msgstr ""
+
+#: inc/template-functions.php
+msgid "Reading level should be between 7-10 for family content."
+msgstr ""
+
+#: inc/template-functions.php
+msgid "English"
+msgstr ""
+
+#: inc/template-functions.php
+msgid "Sinhala"
+msgstr ""
+
+#: inc/template-functions.php
+msgid "Tamil"
+msgstr ""
+
+#: inc/ajax-handlers.php
+msgid "Security check failed"
+msgstr ""
+
+#: inc/ajax-handlers.php
+msgid "Multilingual plugin not active"
+msgstr ""
+
+#: inc/ajax-handlers.php
+msgid "Language parameter is required"
+msgstr ""
+
+#: inc/ajax-handlers.php
+msgid "Invalid language code"
+msgstr ""
+
+#: inc/ajax-handlers.php
+msgid "Language changed successfully"
+msgstr ""
+
+#: template-parts/navigation/language-switcher.php
+msgid "Select Language"
+msgstr ""
+
+#: template-parts/navigation/language-switcher.php
+msgid "Choose Your Language"
+msgstr ""
+
+#: template-parts/navigation/language-switcher.php
+msgid "Select your preferred language for medical information"
+msgstr ""
+
+#: template-parts/navigation/language-switcher.php
+msgid "Continue"
+msgstr ""
+
+#: template-parts/content/translation-notice.php
+msgid "Translation Not Available"
+msgstr ""
+
+#: template-parts/content/translation-notice.php
+msgid "This content is not yet available in %s. You are viewing the English version."
+msgstr ""
+
+#: template-parts/content/translation-notice.php
+msgid "This content is available in:"
+msgstr ""
+
+#: template-parts/content/translation-notice.php
+msgid "Close notice"
+msgstr ""
+
+#: single-article.php
+msgid "Published: %s"
+msgstr ""
+
+#: archive.php
+msgid "Articles"
+msgstr ""
+
+#: search.php
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php
+msgid "%s result found"
+msgid_plural "%s results found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: search.php
+msgid "Showing results in all languages"
+msgstr ""
+
+#: search.php
+msgid "Showing results in %s"
+msgstr ""
+
+#: search.php
+msgid "Show only %s"
+msgstr ""
+
+#: search.php
+msgid "Show all languages"
+msgstr ""
+
+#: search.php
+msgid "Nothing Found"
+msgstr ""
+
+#: search.php
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr ""
+
+#: search.php
+msgid "Suggestions:"
+msgstr ""
+
+#: search.php
+msgid "Make sure all words are spelled correctly"
+msgstr ""
+
+#: search.php
+msgid "Try different keywords"
+msgstr ""
+
+#: search.php
+msgid "Try more general keywords"
+msgstr ""
+
+#: search.php
+msgid "Try searching in all languages"
+msgstr ""
+
+#: search.php
+msgid "Popular Articles"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "For Families"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "For Professionals"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Reading Time"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "min read"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Last Updated"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Medically Reviewed By"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Read More"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Related Articles"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Previous"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Next"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Home"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Back to"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Medical Terms Explained"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Key Takeaways"
+msgstr ""
+
+#: template-parts/content/content-condition-explainer.php
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: template-parts/content/content-condition-explainer.php
+msgid "Medical Terms"
+msgstr ""
+
+#: template-parts/content/content-condition-explainer.php
+msgid "Related Treatments"
+msgstr ""
+
+#: template-parts/content/content-condition-explainer.php
+msgid "Image Gallery"
+msgstr ""
+
+#: template-parts/content/content-treatment-procedure.php
+msgid "Before the Procedure"
+msgstr ""
+
+#: template-parts/content/content-treatment-procedure.php
+msgid "During the Procedure"
+msgstr ""
+
+#: template-parts/content/content-treatment-procedure.php
+msgid "After the Procedure"
+msgstr ""
+
+#: template-parts/content/content-treatment-procedure.php
+msgid "Expected Outcomes"
+msgstr ""
+
+#: template-parts/content/content-treatment-procedure.php
+msgid "Recovery Timeline"
+msgstr ""
+
+#: template-parts/content/content-treatment-procedure.php
+msgid "Possible Risks"
+msgstr ""
+
+#: template-parts/content/content-treatment-procedure.php
+msgid "When to Contact Your Doctor"
+msgstr ""
+
+#: template-parts/content/content-professional-article.php
+msgid "Clinical Guidelines"
+msgstr ""
+
+#: template-parts/content/content-professional-article.php
+msgid "Evidence Summary"
+msgstr ""
+
+#: template-parts/content/content-professional-article.php
+msgid "References"
+msgstr ""
+
+#: template-parts/content/content-professional-article.php
+msgid "Related Research"
+msgstr ""
+
+#: template-parts/content/content-professional-article.php
+msgid "Practice Points"
+msgstr ""
+
+#: template-parts/content/support-resources.php
+msgid "Support Resources"
+msgstr ""
+
+#: template-parts/content/support-resources.php
+msgid "Phone"
+msgstr ""
+
+#: template-parts/content/support-resources.php
+msgid "Email"
+msgstr ""
+
+#: template-parts/content/support-resources.php
+msgid "Website"
+msgstr ""
+
+#: template-parts/content/support-resources.php
+msgid "Languages Supported"
+msgstr ""
+
+#: template-parts/content/support-resources.php
+msgid "View All Support Resources"
+msgstr ""
+
+#: front-page.php
+msgid "Find Reliable Information"
+msgstr ""
+
+#: front-page.php
+msgid "Browse by Condition"
+msgstr ""
+
+#: front-page.php
+msgid "Featured Articles"
+msgstr ""
+
+#: front-page.php
+msgid "Treatment Journeys"
+msgstr ""
+
+#: front-page.php
+msgid "For Healthcare Professionals"
+msgstr ""
+
+#: front-page.php
+msgid "Call Us"
+msgstr ""
+
+#: archive.php
+msgid "Filter by Audience"
+msgstr ""
+
+#: archive.php
+msgid "All Audiences"
+msgstr ""
+
+#: archive.php
+msgid "Apply Filter"
+msgstr ""
+
+#: taxonomy-article_category.php
+msgid "Reading Level"
+msgstr ""
+
+#: taxonomy-article_category.php
+msgid "Related Categories"
+msgstr ""
