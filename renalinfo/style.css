@@ -1,0 +1,351 @@
+/*!
+Theme Name: RenalInfo Paediatric Nephrology
+Theme URI: https://github.com/rasikakulasinghe/WordPress_renalinfo
+Author: Rasika Kulasinghe
+Author URI: https://github.com/rasikakulasinghe
+Description: A specialized WordPress theme for paediatric nephrology clinics providing multilingual (English, Sinhala, Tamil) medical information for families and healthcare professionals. Features custom content templates for medical conditions, treatment procedures, patient journey modules, staff profiles, and WCAG 2.1 AA accessible design.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: renalinfo
+Domain Path: /languages
+Tags: accessibility-ready, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, healthcare, medical, multilingual, translation-ready, two-columns
+
+RenalInfo Paediatric Nephrology, (C) 2025 Rasika Kulasinghe
+RenalInfo Paediatric Nephrology is distributed under the terms of the GNU GPL.
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Base
+# Typography
+# Layout
+# Components
+# Navigation
+# Content
+# Widgets
+# Accessibility
+# Media Queries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+
+:root {
+	/* Color Palette - Calming blues, soft greens, muted teals */
+	--color-primary: #4A90A4;
+	--color-primary-light: #7DB8CC;
+	--color-primary-dark: #2C6B7F;
+	--color-secondary: #7CB8A8;
+	--color-secondary-light: #A8D5C9;
+	--color-secondary-dark: #5A9987;
+	--color-accent: #B4D4E1;
+	
+	/* Neutral Colors */
+	--color-text: #2C3E50;
+	--color-text-light: #5A6C7D;
+	--color-text-muted: #8A9BAC;
+	--color-background: #FFFFFF;
+	--color-background-alt: #F5F8FA;
+	--color-border: #E1E8ED;
+	
+	/* Status Colors */
+	--color-success: #52B788;
+	--color-warning: #F4A261;
+	--color-error: #E76F51;
+	--color-info: #4A90A4;
+	
+	/* Typography */
+	--font-family-base: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-family-sinhala: "Noto Sans Sinhala", var(--font-family-base);
+	--font-family-tamil: "Noto Sans Tamil", var(--font-family-base);
+	
+	/* Font Sizes */
+	--font-size-base: 1rem;
+	--font-size-small: 0.875rem;
+	--font-size-large: 1.125rem;
+	--font-size-h1: 2.5rem;
+	--font-size-h2: 2rem;
+	--font-size-h3: 1.75rem;
+	--font-size-h4: 1.5rem;
+	--font-size-h5: 1.25rem;
+	--font-size-h6: 1rem;
+	
+	/* Spacing */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 1rem;
+	--spacing-md: 1.5rem;
+	--spacing-lg: 2rem;
+	--spacing-xl: 3rem;
+	
+	/* Layout */
+	--container-width: 1200px;
+	--content-width: 800px;
+	--gap: 1.5rem;
+	
+	/* Transitions */
+	--transition-base: 0.3s ease;
+	
+	/* Z-index layers */
+	--z-dropdown: 1000;
+	--z-sticky: 1020;
+	--z-fixed: 1030;
+	--z-modal-backdrop: 1040;
+	--z-modal: 1050;
+	--z-tooltip: 1060;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-base);
+	line-height: 1.6;
+	color: var(--color-text);
+	background-color: var(--color-background);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Language-specific font families */
+:lang(si),
+[lang="si"] {
+	font-family: var(--font-family-sinhala);
+	line-height: 1.8;
+	letter-spacing: 0.01em;
+}
+
+:lang(ta),
+[lang="ta"] {
+	font-family: var(--font-family-tamil);
+	line-height: 1.8;
+	letter-spacing: 0.01em;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 var(--spacing-md);
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--color-primary-dark);
+}
+
+h1 {
+	font-size: var(--font-size-h1);
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+}
+
+h3 {
+	font-size: var(--font-size-h3);
+}
+
+h4 {
+	font-size: var(--font-size-h4);
+}
+
+h5 {
+	font-size: var(--font-size-h5);
+}
+
+h6 {
+	font-size: var(--font-size-h6);
+}
+
+p {
+	margin: 0 0 var(--spacing-md);
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	transition: color var(--transition-base);
+}
+
+a:hover,
+a:focus {
+	color: var(--color-primary-dark);
+	text-decoration: underline;
+}
+
+a:focus {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+strong,
+b {
+	font-weight: 700;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+ul,
+ol {
+	margin: 0 0 var(--spacing-md) var(--spacing-md);
+	padding: 0;
+}
+
+li {
+	margin-bottom: var(--spacing-xs);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+
+.site {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.site-content {
+	flex: 1;
+}
+
+.container {
+	max-width: var(--container-width);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--spacing-md);
+	padding-right: var(--spacing-md);
+}
+
+.content-area {
+	max-width: var(--content-width);
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+
+/* Skip link */
+.skip-link {
+	position: absolute;
+	left: -9999px;
+	top: 0;
+	z-index: var(--z-tooltip);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--color-primary);
+	color: white;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.skip-link:focus {
+	left: 0;
+	outline: 2px solid var(--color-primary-dark);
+}
+
+/* Screen reader text */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: var(--color-background);
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: var(--color-text);
+	display: block;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+	:root {
+		--font-size-h1: 2rem;
+		--font-size-h2: 1.75rem;
+		--font-size-h3: 1.5rem;
+		--font-size-h4: 1.25rem;
+		--font-size-h5: 1.125rem;
+		--spacing-md: 1rem;
+		--spacing-lg: 1.5rem;
+		--spacing-xl: 2rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	:root {
+		--font-size-base: 0.9375rem;
+		--spacing-sm: 0.75rem;
+		--spacing-md: 0.875rem;
+	}
+}

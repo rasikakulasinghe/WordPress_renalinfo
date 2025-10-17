@@ -1,0 +1,63 @@
+# WordPress Core
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+*.log
+.htaccess
+
+# Theme Development
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build artifacts
+/assets/css/style.css
+/assets/css/style.css.map
+/assets/js/main.js
+/assets/js/main.js.map
+dist/
+build/
+
+# IDE & Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+
+# PHP
+vendor/
+composer.lock
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+.sass-cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# Debug files
+debug.log
+error_log
+*.sql
+*.sqlite
