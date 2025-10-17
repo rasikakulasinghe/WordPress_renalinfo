@@ -1,0 +1,7 @@
+/* Main source CSS file for RenalInfo theme */
+/* This file will be processed by PostCSS */
+
+/* Import base styles from main style.css */
+@import "../../style.css";
+
+/* Additional component styles will be added here */

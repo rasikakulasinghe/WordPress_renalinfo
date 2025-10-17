@@ -26,24 +26,24 @@
 
 **Purpose**: Project initialization and WordPress theme structure
 
-- [ ] T001 Create WordPress theme directory structure per plan.md at `renalinfo/`
-- [ ] T002 Create `renalinfo/style.css` with complete theme header (Theme Name, Description, Version, Author, Text Domain: renalinfo, etc.)
-- [ ] T003 Create `renalinfo/functions.php` with theme setup (add_theme_support for html5, title-tag, post-thumbnails, custom-logo, etc.)
-- [ ] T004 [P] Create `renalinfo/index.php` as main template fallback
-- [ ] T005 [P] Create `renalinfo/header.php` with basic HTML5 structure and wp_head()
-- [ ] T006 [P] Create `renalinfo/footer.php` with wp_footer() and closing tags
+- [X] T001 Create WordPress theme directory structure per plan.md at `renalinfo/`
+- [X] T002 Create `renalinfo/style.css` with complete theme header (Theme Name, Description, Version, Author, Text Domain: renalinfo, etc.)
+- [X] T003 Create `renalinfo/functions.php` with theme setup (add_theme_support for html5, title-tag, post-thumbnails, custom-logo, etc.)
+- [X] T004 [P] Create `renalinfo/index.php` as main template fallback
+- [X] T005 [P] Create `renalinfo/header.php` with basic HTML5 structure and wp_head()
+- [X] T006 [P] Create `renalinfo/footer.php` with wp_footer() and closing tags
 - [ ] T007 [P] Create `renalinfo/screenshot.png` (1200x900px theme screenshot)
-- [ ] T008 [P] Create `renalinfo/readme.txt` with theme information and GPL license
-- [ ] T009 [P] Create `renalinfo/LICENSE` file (GPL v2 or later)
-- [ ] T010 Create `renalinfo/package.json` with build tool dependencies (postcss, esbuild, eslint, stylelint per research.md)
-- [ ] T011 Create `renalinfo/phpcs.xml` for PHP_CodeSniffer with WordPress coding standards configuration
-- [ ] T012 [P] Create `renalinfo/.gitignore` (node_modules/, compiled assets, debug.log, etc.)
-- [ ] T013 [P] Create `renalinfo/assets/css/src/style.css` (source CSS file)
-- [ ] T014 [P] Create `renalinfo/assets/js/src/main.js` (source JavaScript file)
+- [X] T008 [P] Create `renalinfo/readme.txt` with theme information and GPL license
+- [X] T009 [P] Create `renalinfo/LICENSE` file (GPL v2 or later)
+- [X] T010 Create `renalinfo/package.json` with build tool dependencies (postcss, esbuild, eslint, stylelint per research.md)
+- [X] T011 Create `renalinfo/phpcs.xml` for PHP_CodeSniffer with WordPress coding standards configuration
+- [X] T012 [P] Create `renalinfo/.gitignore` (node_modules/, compiled assets, debug.log, etc.)
+- [X] T013 [P] Create `renalinfo/assets/css/src/style.css` (source CSS file)
+- [X] T014 [P] Create `renalinfo/assets/js/src/main.js` (source JavaScript file)
 - [ ] T015 Run `npm install` in renalinfo/ directory to install build dependencies
-- [ ] T016 Configure PostCSS with postcss-preset-env, autoprefixer, and cssnano in `renalinfo/postcss.config.js`
-- [ ] T017 Add npm scripts to `renalinfo/package.json` (build, watch, lint commands per research.md)
-- [ ] T018 Create `renalinfo/.editorconfig` for consistent code formatting
+- [X] T016 Configure PostCSS with postcss-preset-env, autoprefixer, and cssnano in `renalinfo/postcss.config.js`
+- [X] T017 Add npm scripts to `renalinfo/package.json` (build, watch, lint commands per research.md)
+- [X] T018 Create `renalinfo/.editorconfig` for consistent code formatting
 
 ---
 
@@ -53,23 +53,23 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T019 Register navigation menus (primary-menu, footer-menu) in `renalinfo/functions.php`
-- [ ] T020 Enqueue Google Fonts (Inter, Noto Sans Sinhala, Noto Sans Tamil) with font-display: swap in `renalinfo/functions.php`
-- [ ] T021 Enqueue theme CSS with wp_enqueue_style in `renalinfo/functions.php`
-- [ ] T022 Enqueue theme JavaScript with wp_enqueue_script in `renalinfo/functions.php`
-- [ ] T023 Implement asset versioning strategy (use SCRIPT_DEBUG for development vs production) in `renalinfo/functions.php`
-- [ ] T024 Set up AJAX localization with admin-ajax.php URL and nonces in `renalinfo/functions.php`
-- [ ] T025 Register custom image sizes (article-hero: 1200x600, staff-profile: 400x400, article-thumb: 300x200) in `renalinfo/functions.php`
-- [ ] T026 Register 'article' custom post type with proper supports and taxonomies in `renalinfo/inc/custom-post-types.php`
-- [ ] T027 [P] Register 'journey' custom post type in `renalinfo/inc/custom-post-types.php`
-- [ ] T028 [P] Register 'staff' custom post type in `renalinfo/inc/custom-post-types.php`
-- [ ] T029 [P] Register 'medical_term' custom post type in `renalinfo/inc/custom-post-types.php`
+- [X] T019 Register navigation menus (primary-menu, footer-menu) in `renalinfo/functions.php`
+- [X] T020 Enqueue Google Fonts (Inter, Noto Sans Sinhala, Noto Sans Tamil) with font-display: swap in `renalinfo/functions.php`
+- [X] T021 Enqueue theme CSS with wp_enqueue_style in `renalinfo/functions.php`
+- [X] T022 Enqueue theme JavaScript with wp_enqueue_script in `renalinfo/functions.php`
+- [X] T023 Implement asset versioning strategy (use SCRIPT_DEBUG for development vs production) in `renalinfo/functions.php`
+- [X] T024 Set up AJAX localization with admin-ajax.php URL and nonces in `renalinfo/functions.php`
+- [X] T025 Register custom image sizes (article-hero: 1200x600, staff-profile: 400x400, article-thumb: 300x200) in `renalinfo/functions.php`
+- [X] T026 Register 'article' custom post type with proper supports and taxonomies in `renalinfo/inc/custom-post-types.php`
+- [X] T027 [P] Register 'journey' custom post type in `renalinfo/inc/custom-post-types.php`
+- [X] T028 [P] Register 'staff' custom post type in `renalinfo/inc/custom-post-types.php`
+- [X] T029 [P] Register 'medical_term' custom post type in `renalinfo/inc/custom-post-types.php`
 - [ ] T029a [P] Create admin columns and quick-edit UI for medical term abbreviations and synonyms in `renalinfo/inc/custom-post-types.php` to support FR-016a glossary management
-- [ ] T030 [P] Register 'support_resource' custom post type in `renalinfo/inc/custom-post-types.php`
-- [ ] T031 Register 'article_category' taxonomy (hierarchical) in `renalinfo/inc/custom-taxonomies.php`
-- [ ] T032 [P] Register 'audience_type' taxonomy in `renalinfo/inc/custom-taxonomies.php`
-- [ ] T033 [P] Register 'specialization' taxonomy in `renalinfo/inc/custom-taxonomies.php`
-- [ ] T034 [P] Register 'resource_type' taxonomy in `renalinfo/inc/custom-taxonomies.php`
+- [X] T030 [P] Register 'support_resource' custom post type in `renalinfo/inc/custom-post-types.php`
+- [X] T031 Register 'article_category' taxonomy (hierarchical) in `renalinfo/inc/custom-taxonomies.php`
+- [X] T032 [P] Register 'audience_type' taxonomy in `renalinfo/inc/custom-taxonomies.php`
+- [X] T033 [P] Register 'specialization' taxonomy in `renalinfo/inc/custom-taxonomies.php`
+- [X] T034 [P] Register 'resource_type' taxonomy in `renalinfo/inc/custom-taxonomies.php`
 - [ ] T035 Create custom fields framework using CMB2 or ACF (or native) in `renalinfo/inc/custom-fields.php`
 - [ ] T036 Add article custom fields (_article_template, _reading_level, _audience, _medical_review_date, etc.) in `renalinfo/inc/custom-fields.php`
 - [ ] T037 [P] Add journey custom fields (_journey_articles, _journey_audience, _estimated_time) in `renalinfo/inc/custom-fields.php`

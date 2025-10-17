@@ -70,6 +70,14 @@ function renalinfo_setup() {
 
 	// Add support for editor styles.
 	add_theme_support( 'editor-styles' );
+
+	// Register navigation menus.
+	register_nav_menus(
+		array(
+			'primary-menu' => esc_html__( 'Primary Menu', 'renalinfo' ),
+			'footer-menu'  => esc_html__( 'Footer Menu', 'renalinfo' ),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'renalinfo_setup' );
 
